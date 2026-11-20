@@ -36,6 +36,10 @@ jobs:
     name: Terraform deploy
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: Day1githubaction
+
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -68,6 +72,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: plan
     environment: production   # 👈 requires manual approval
+
+    defaults:
+      run:
+        working-directory: Day1githubaction
 
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
